@@ -1,6 +1,7 @@
 require "escape/version"
+require "escape/player"
 
 module Escape
   class Error < StandardError; end
-  # Your code goes here...
+
 end
