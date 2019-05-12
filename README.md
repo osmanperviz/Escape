@@ -1,43 +1,35 @@
-# Escape
+# Labyrinth console application
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/escape`. To experiment with that code, run `bin/console` for an interactive prompt.
+The 2D maze game can be played with one or more players. The first player to get to the exit wins.
 
-TODO: Delete this and the text above, and describe your gem
+The maze is read from a text file to put in the project root (see `eccape.txt` file as an example). The maze is composed of cells. Every cell has its coordinates (0,0) being defined in the upper left corner. The start cell is marked with letter 'S', the finish (exit) cell is marked with the 'F' one. The walls are marked with the dash '#' sign.
 
-## Installation
+The game is played from the command line in turn, and the maze is refreched after every go and displays each player's position. A player's position is indexed starting from 0 (zero) and so on. If a player tries to move against a wall, he will stay where he is and keep his previous coordinates.
 
-Add this line to your application's Gemfile:
+## Available keyboard keys to move
 
-```ruby
-gem 'escape'
+- **j** - LEFT
+- **i** - UP
+- **l** - RIGHT (downcased L)
+- **k** - DOWN
+
+## Available players
+
+- Human Player
+- Random Player
+
+## Human Player
+
+The player is moving with the help of human which will define the best strategy and direction to move to be the first to get the finish cell.
+
+## Random Player
+
+The player moves absolutely in a random way.
+
+Actually players (their type and names) are hard-coded in the Escape::Support.create_player method.
+
+To start up the maze, just run from the project root:
+
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install escape
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/escape. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Escape project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/escape/blob/master/CODE_OF_CONDUCT.md).
+ruby bin/play.rb {maze_text_file}
+```
