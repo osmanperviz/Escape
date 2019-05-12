@@ -1,4 +1,4 @@
-module Laby
+module Escape
   # Public: general abstract Player
   class Player
     # Public: Returns the Strign name of the player.
